@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <!-- AI chip body -->
+    <path android:strokeColor="#39FF14" android:strokeWidth="3.2" android:fillColor="#0B1F0B"
+        android:pathData="M40,34 L68,34 Q74,34 74,40 L74,68 Q74,74 68,74 L40,74 Q34,74 34,68 L34,40 Q34,34 40,34 Z" />
+    <!-- pins -->
+    <path android:strokeColor="#39FF14" android:strokeWidth="2.6" android:strokeLineCap="round"
+        android:pathData="M44,34 L44,27 M54,34 L54,27 M64,34 L64,27 M44,74 L44,81 M54,74 L54,81 M64,74 L64,81 M34,44 L27,44 M34,54 L27,54 M34,64 L27,64 M74,44 L81,44 M74,54 L81,54 M74,64 L81,64" />
+    <!-- sparkle (on-device AI) -->
+    <path android:fillColor="#39FF14"
+        android:pathData="M54,40 Q56,52 68,54 Q56,56 54,68 Q52,56 40,54 Q52,52 54,40 Z" />
+    <path android:fillColor="#B6FF9E" android:pathData="M64.5,41 Q65.2,44.3 68.5,45 Q65.2,45.7 64.5,49 Q63.8,45.7 60.5,45 Q63.8,44.3 64.5,41 Z" />
+</vector>

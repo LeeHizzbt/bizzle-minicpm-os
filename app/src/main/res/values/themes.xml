@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.Bizzle" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+        <item name="android:colorAccent">@color/neon</item>
+    </style>
+</resources>
