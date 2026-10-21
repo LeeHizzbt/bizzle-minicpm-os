@@ -64,14 +64,14 @@ class ApiServer(private val ctx: Context) {
         }
     }
 
-    private fun handle(c: Socket) = c.use { sock ->
+    private fun handle(c: Socket): Unit = c.use { sock ->
         sock.soTimeout = 120_000
         val out = sock.getOutputStream()
         try {
-            val req = MiniHttp.read(BufferedInputStream(sock.getInputStream())) ?: return
+            val req = MiniHttp.read(BufferedInputStream(sock.getInputStream())) ?: return@use
             _requests.value++
             _lastLog.value = "${req.method} ${req.path}"
-            if (req.method == "OPTIONS") return MiniHttp.writeEmpty(out, 204)
+            if (req.method == "OPTIONS") { MiniHttp.writeEmpty(out, 204); return@use }
             val token = if (app.store.apiRequireToken) app.store.apiToken else ""
             when {
                 req.path == "/health" || req.path == "/" -> MiniHttp.writeJson(out, 200, health())
@@ -87,6 +87,7 @@ class ApiServer(private val ctx: Context) {
             Log.w(TAG, "request failed", e)
             runCatching { MiniHttp.writeJson(out, 500, OpenAi.error(e.message ?: "server error", "server_error")) }
         }
+        Unit
     }
 
     private fun health(): String {

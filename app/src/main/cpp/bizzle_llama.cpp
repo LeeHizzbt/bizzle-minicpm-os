@@ -144,7 +144,6 @@ Java_com_bizzle_minicpm_engine_LlamaNative_nativeLoad(JNIEnv * env, jobject, jst
 
     llama_model_params mp = llama_model_default_params();
     mp.n_gpu_layers = use_gpu ? 999 : 0;
-    mp.use_mmap = true;
     s->model = llama_model_load_from_file(model_path.c_str(), mp);
     if (!s->model) { g_last_error = "Could not load model file (corrupt, unsupported, or not enough memory)"; delete s; return 0; }
 
